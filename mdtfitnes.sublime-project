@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": "static_in_env"
+		},
+		{
+			"path": "src"
+		}
+	]
+}
