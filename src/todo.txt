@@ -1,0 +1,13 @@
+1. Products
+	--Single Product (detail view)
+	--List Product(list view)
+	--Inventory Control + Viewable
+	--Search Products
+
+2. Checkout
+	--Cart(Shopping cart)
+	--Auth user & guest user(non-auth)
+	--Shipping and Billing Address
+
+3. Payment 
+	--Integration with Braintree(Steps on other integrations)
