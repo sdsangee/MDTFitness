@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.db.models.signals import post_save
+from django.utils.text import slugify
 
 
 #Implementing Query set to get only the products marked as active
@@ -72,10 +73,17 @@ def product_post_saved_receiver(sender, instance, created, *args, **kwargs):
 post_save.connect(product_post_saved_receiver, sender=Product)				
 		
 #Product Images		
+def image_upload_to(instance, filename):
+	title = instance.title
+	slug = slugify(title)
+	file_extension = filename.split(".")[1]
+	new_filename = "%s.%s" %(instance.id, file_extension)
+	return "products/%s/%s" %(slug, new_filename) 
 
 class ProductImage(models.Model):
 	product = models.ForeignKey(Product)
-	image = models.ImageField(upload_to='products/')
+	#image = models.ImageField(upload_to = image_upload_to)
+	image = models.ImageField(upload_to = 'products/images/')
 
 	def __unicode__(self):
 		return self.product.title
