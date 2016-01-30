@@ -1,3 +1,7 @@
 .text-align-center {
 	text-align: center;
 }
+.org-price{
+	color:red;
+	text-decoration:line-through;
+}
